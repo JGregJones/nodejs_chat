@@ -64,5 +64,9 @@ Commited code,  got a 3 room with dropdown selection working.
 Will be in one room at a time.
 Lets try committing from VSCode - worked
 
-Next - Added player name field, and protocol code to set it.
+Added player name field, and protocol code to set it.
+Added broadcast button, that was painful.
+Trick was to add an onclick value passed to submit to know what button it was.
+
+
 
