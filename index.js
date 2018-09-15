@@ -12,12 +12,14 @@ io.on('connection', function(socket){           // log messages on connect/disco
     socket.on('disconnect', function(){
       console.log('user disconnected');
     });
-    var room = 'lobby';                         // Start in Lobby 
+    var room = 'lobby';  
+    var name = 'Player';                       // Start in Lobby 
     socket.join(room);                       
     socket.on('chat message', function(msg){    // event 'chat message'
         console.log('message '+ room + ":" + msg);         // log messages to console
-        io.to(room).emit('chat message', room + ": " + msg);  // broadcast to room
-    });
+        // io.to(room).emit('chat message', room + ": " + msg);  // broadcast to room
+        io.to(room).emit('chat message', name + ": " + msg);  // broadcast to room
+      });
     socket.on('set room', function(newroom){       // event 'chat message'
         console.log("set room: leave " + room + " joining " + newroom);       // log messages to console
         socket.leave(room);
@@ -25,6 +27,10 @@ io.on('connection', function(socket){           // log messages on connect/disco
         socket.join(room);
         io.to(room).emit('chat message',"New user has joined " + room);
     });
+    socket.on('set name', function(newname){       // event 'chat message'
+    console.log("set name: old " + name + " new " + newname);       // log messages to console
+    name = newname;
+});
   });
 
 http.listen(3000, function(){                   // Start website listener

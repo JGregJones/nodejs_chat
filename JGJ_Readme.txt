@@ -62,4 +62,7 @@ And unless you direct the messages to a specific room, they go everywhere!
 
 Commited code,  got a 3 room with dropdown selection working.
 Will be in one room at a time.
-Lets try committing from VSCode!
+Lets try committing from VSCode - worked
+
+Next - Added player name field, and protocol code to set it.
+
