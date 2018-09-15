@@ -8,13 +8,22 @@ app.get('/', function(req, res){                // handler for website home '/'
 });
 
 io.on('connection', function(socket){           // log messages on connect/disconnect
-    console.log('a user connected from ' + socket.handshake.address);
+    console.log('a user connected from ' + socket.handshake.address + ' on socket' + socket.id );
     socket.on('disconnect', function(){
       console.log('user disconnected');
     });
+    var room = 'lobby';                         // Start in Lobby 
+    socket.join(room);                       
     socket.on('chat message', function(msg){    // event 'chat message'
-        console.log('message: ' + msg);         // log messages to console
-        io.emit('chat message', msg);           // broadcast to everyone
+        console.log('message '+ room + ":" + msg);         // log messages to console
+        io.to(room).emit('chat message', room + ": " + msg);  // broadcast to room
+    });
+    socket.on('set room', function(newroom){       // event 'chat message'
+        console.log("set room: leave " + room + " joining " + newroom);       // log messages to console
+        socket.leave(room);
+        room = newroom;
+        socket.join(room);
+        io.to(room).emit('chat message',"New user has joined " + room);
     });
   });
 

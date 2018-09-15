@@ -1,4 +1,4 @@
-9/6/2018 - Greg Jones
+=== 9/6/2018 - Greg Jones
 Socket.IO example pulled from: https://socket.io/get-started/chat
 
 will need to install express and socket.io to use this code
@@ -43,3 +43,23 @@ Added html code in client to send message on submet
 Added message handler in index.js to process message
 Added html code to process incoming message
 Added server code to broadcast message to everyone.
+
+=== 9/15/2018 - How do I make this multiple rooms?
+First created git repo (git init) for my code and .gitignore for all the json crap
+
+https://socket.io/docs/rooms-and-namespaces/
+There are 2 mechanims that have potential - namespaces and rooms
+The default namespace is '/'
+namespaces get their own connection/disconnection events
+multiple rooms reside in a namespace
+You join/leave rooms within the connection
+default room - each socket has random uniq ID, by default this ID is the room
+
+Let's just see if we can change code to use a non-default room
+So it took much longer than expected, mainly due to confusion
+You can be in more than one room at a time.
+And unless you direct the messages to a specific room, they go everywhere!
+
+Commited code,  got a 3 room with dropdown selection working.
+Will be in one room at a time.
+Lets try committing from VSCode!
