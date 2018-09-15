@@ -79,4 +79,24 @@ There was no need to create a pull request because I'd pushed into master.
 When I look at the commit history I can see all is perserved.
 I'm making this change on a feature branch so I can try the PR process.
 
+While I created a local branch feature, it doesn't exist on github
+so I'm going to have to create one of those using command:
+
+git push origin feature
+$ git push origin feature
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 607 bytes | 607.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+remote:
+remote: Create a pull request for 'feature' on GitHub by visiting:
+remote:      https://github.com/JGregJones/nodejs_chat/pull/new/feature
+remote:
+To https://github.com/JGregJones/nodejs_chat.git
+ * [new branch]      feature -> feature
+
+ 
 
