@@ -68,5 +68,15 @@ Added player name field, and protocol code to set it.
 Added broadcast button, that was painful.
 Trick was to add an onclick value passed to submit to know what button it was.
 
+Setup github for project at:
+https://github.com/JGregJones/nodejs_chat
+
+Created empty repo then used following commands to push my local copy
+git remote add origin https://github.com/JGregJones/nodejs_chat.git
+git push -u origin master
+
+There was no need to create a pull request because I'd pushed into master.
+When I look at the commit history I can see all is perserved.
+I'm making this change on a feature branch so I can try the PR process.
 
 
