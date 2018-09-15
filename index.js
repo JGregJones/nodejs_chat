@@ -16,10 +16,15 @@ io.on('connection', function(socket){           // log messages on connect/disco
     var name = 'Player';                       // Start in Lobby 
     socket.join(room);                       
     socket.on('chat message', function(msg){    // event 'chat message'
-        console.log('message '+ room + ":" + msg);         // log messages to console
+        console.log('message: '+ room + ":" + msg);         // log messages to console
         // io.to(room).emit('chat message', room + ": " + msg);  // broadcast to room
         io.to(room).emit('chat message', name + ": " + msg);  // broadcast to room
-      });
+    });
+    socket.on('broadcast', function(msg){    // event 'chat message'
+      console.log("broadcast:" + msg);         // log messages to console
+      // io.to(room).emit('chat message', room + ": " + msg);  // broadcast to room
+      io.emit('chat message', name + ": " + msg);  // broadcast
+    });
     socket.on('set room', function(newroom){       // event 'chat message'
         console.log("set room: leave " + room + " joining " + newroom);       // log messages to console
         socket.leave(room);
